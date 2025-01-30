@@ -5,6 +5,6 @@ terraform/*
 !terraform/terraform.tf
 !terraform/variables.tf
 
-shell_scripts/*
-
 pipeline/__pycache__
+
+*sh
