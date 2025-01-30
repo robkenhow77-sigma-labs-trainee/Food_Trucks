@@ -9,6 +9,7 @@ from shutil import rmtree
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 import pymysql
+
 # Local imports
 from extract import extract as extract_main
 from transform import transform as transform_main

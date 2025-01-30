@@ -105,9 +105,9 @@ def generate_html(total_transaction_value: str,
 
 def create_html_file(html: str) -> None:
     """Generates the html file."""
-    if path.exists('report/report.html'):
-        remove('report/report.html')
-    with open('report/report.html', 'x', encoding='UTF-8') as file:
+    if path.exists('report.html'):
+        remove('report.html')
+    with open('report.html', 'x', encoding='UTF-8') as file:
         file.write(html)
 
 
