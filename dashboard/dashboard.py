@@ -205,7 +205,7 @@ def percentage_increase_metric(conn: pymysql.Connection, col) -> None:
     output = query(sql, conn)
     today, yesterday = output[0]['total'], output[1]['total']
     percentage_increase = ((today - yesterday) / yesterday) * 100
-    col.metric(label="Percentage Increase", value=f'{round(percentage_increase)}%', border =True)
+    col.metric(label="Percentage increase from previous day", value=f'{round(percentage_increase)}%', border =True)
 
 
 def homepage(conn: pymysql.Connection):

@@ -4,3 +4,5 @@ streamlit
 altair
 pandas
 pylint
+pytest
+pytest-mock
