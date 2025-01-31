@@ -52,8 +52,16 @@ This file creates the streamlit dashboard. It queries the data base to get the r
 
 #### shell scripts
 
-`source docker_build.sh` used the dashboard image run 
- `source docker_run.sh` used to view the dashboard at: http://0.0.0.0:8501/
+`docker_build.sh` used the dashboard image run 
+`docker_run.sh` used to view the dashboard at: http://0.0.0.0:8501/
+`docker_to_aws.sh` used to push the image to AWS, requires setup:
+- create a file with the name above.
+- go to the Elastic Container Registry on AWS and create an image
+- navigate into the image
+- open view push commands
+- copy and paste each step onto a new line in the shell script
+- on line 2 add to the end of the command: `--platform="linux/amd64`
+
 
 #### `Dockerfile`
 
@@ -128,6 +136,15 @@ CLI options:
 
 Used to transform the data from the extracted csv files and create a pandas DataFrame with the data to be uploaded.
 
+#### shell scripts
+`docker_to_aws.sh` used to push the image to AWS, requires setup:
+- create a file with the name above.
+- go to the Elastic Container Registry on AWS and create an image
+- navigate into the image
+- open view push commands
+- copy and paste each step onto a new line in the shell script
+- on line 2 add to the end of the command: `--platform="linux/amd64`
+
 #### `.env`
 
 The .env must include the following for the AWS account and MySQL database:
@@ -156,6 +173,15 @@ A copy of html that will be uploaded for sending out the daily report email. The
 #### `report.py`
 
 The script used to generate the html for the daily report. Script queries the database to get the relevant data then generates the html to present the insights.
+
+#### shell scripts
+`docker_to_aws.sh` used to push the image to AWS, requires setup:
+- create a file with the name above.
+- go to the Elastic Container Registry on AWS and create an image
+- navigate into the image
+- open view push commands
+- copy and paste each step onto a new line in the shell script
+- on line 2 add to the end of the command: `--platform="linux/amd64`
 
 #### `.env`
 The .env must include the following for the MySQL database:

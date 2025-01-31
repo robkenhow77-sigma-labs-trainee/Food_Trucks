@@ -9,3 +9,4 @@ pipeline/__pycache__
 
 pipeline/*.sh
 report/*.sh
+dashboard/*.sh
