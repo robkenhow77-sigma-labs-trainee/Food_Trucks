@@ -41,8 +41,10 @@ Each folder contains useful shell scripts.\
 Each folder must contain a .env file (or .tfvars for terraform), the folder breakdown below will provide the relevant details for each file.
 
 The contents of each folder is broken down below, in order of appearance:
+---
 
 ### dashboard
+
 
 #### `dashboard.py`
 
@@ -68,8 +70,9 @@ The .env must include the following for the MySQL database:
 - DB_NAME
 - DB_USER
 - DB_PASSWORD
-
+---
 ### database
+
 
 #### shell scripts
 
@@ -94,8 +97,9 @@ The .env must include the following for the MySQL database:
 - DB_USER
 - DB_PASSWORD
 
-
+---
 ### pipeline
+
 
 #### `truck_data`
 
@@ -137,8 +141,9 @@ The .env must include the following for the AWS account and MySQL database:
 - DB_NAME
 - DB_USER
 - DB_PASSWORD
-
+---
 ### report
+
 
 #### `Dockerfile`
 
@@ -159,15 +164,15 @@ The .env must include the following for the MySQL database:
 - DB_NAME
 - DB_USER
 - DB_PASSWORD
-
-### terraform
-
-**WORK IN PROGRESS**
+---
+### terraform **!WORK IN PROGRESS!**
 
 #### `terraform.tf`
 
 All the terraform code to generate the following:
-- 
+
+- lambda function
+- task definition
 
 #### `variables.tf` 
 
@@ -188,8 +193,6 @@ This file must be created with the following:
 - DB_USER
 - DB_PASSWORD
 
-## Testing
+## Testing **!WORK IN PROGRESS!**
 
 Relevant tests.
-
-**WORK IN PROGRESS**
