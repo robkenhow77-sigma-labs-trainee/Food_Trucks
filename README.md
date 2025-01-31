@@ -164,8 +164,29 @@ The .env must include the following for the MySQL database:
 
 **WORK IN PROGRESS**
 
+#### `terraform.tf`
+
 All the terraform code to generate the following:
 - 
+
+#### `variables.tf` 
+
+Teh neccesary varibales for the `terraform.tf` file.
+
+#### `terraform.tfvars`
+
+This file must be created with the following:
+
+- ACCESS_KEY
+- SECRET_KEY
+- PIPELINE_IMAGE_URI
+- BUCKET
+- FOLDER -> s3 bucket folder
+- DB_HOST
+- DB_PORT
+- DB_NAME
+- DB_USER
+- DB_PASSWORD
 
 ## Testing
 
