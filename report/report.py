@@ -1,4 +1,4 @@
-"""A script to generate a report of the previous days financial data."""
+"""A script to generate a html report of the previous days financial data."""
 # Native imports
 from os import environ as ENV, path, remove
 
@@ -6,6 +6,7 @@ from os import environ as ENV, path, remove
 import pymysql
 import pandas as pd
 from dotenv import load_dotenv
+
 
 # CSS
 TABLE_STYLE = """
@@ -112,11 +113,13 @@ def create_html_file(html: str) -> None:
 
 
 def lambda_handler(event=None, context=None):
+    """Lambda function."""
     html = main()
     return {"message": html}
 
 
 def main():
+    """Function to run the script."""
     # Initialise
     load_dotenv()
     conn = pymysql.connect(host=ENV["DB_HOST"],
@@ -125,20 +128,22 @@ def main():
             database=ENV["DB_NAME"],
             charset='utf8mb4',
             cursorclass=pymysql.cursors.DictCursor)
-    
+
     # Get the data
     data = get_data(conn)
 
     # Create data frame and get relevant data
     df = pd.DataFrame(data)
     value_total_transaction = f'£{round(df['total'].round(2).sum(), 2)}'
-    per_truck_transaction_value = df[['total', 'truck_id']].groupby('truck_id').sum().reset_index().rename(columns = {"total": "total - £"})
+    per_truck_transaction_value = df[['total', 'truck_id']].groupby('truck_id'
+                            ).sum().reset_index().rename(columns = {"total": "total - £"})
     per_truck_transactions = df[['total', 'truck_id']].groupby('truck_id').count().reset_index()
 
     # Generate html
-    return generate_html(value_total_transaction, per_truck_transaction_value, per_truck_transactions)
+    return generate_html(value_total_transaction,
+                        per_truck_transaction_value, per_truck_transactions)
 
 
 if __name__ == "__main__":
-    html = main()
-    create_html_file(html)
+    report_html = main()
+    create_html_file(report_html)

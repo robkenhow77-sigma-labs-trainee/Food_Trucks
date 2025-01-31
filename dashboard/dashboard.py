@@ -1,6 +1,8 @@
 """Streamlit app for the project."""
+# Native imports
 from os import environ as ENV
 
+# Third-party imports
 from dotenv import load_dotenv
 import pymysql
 import streamlit as st

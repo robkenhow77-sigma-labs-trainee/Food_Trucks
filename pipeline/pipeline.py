@@ -16,8 +16,10 @@ from transform import transform as transform_main
 
 
 def initialise_args():
+    """Gets the cli arguments"""
     parser = ArgumentParser()
-    parser.add_argument("-a", "--all_files",  action='store_true', help="-a or --all is called to get all truck data from the s3 bucket not just the latest.")
+    parser.add_argument("-a", "--all_files",  action='store_true',
+        help="-a or --all is called to get all truck data from the s3 bucket not just the latest.")
     args = parser.parse_args()
     return args.all_files
 
@@ -54,4 +56,3 @@ if __name__ == "__main__":
 
     else:
         print("No new files")
-   

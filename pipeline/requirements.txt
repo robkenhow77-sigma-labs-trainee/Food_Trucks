@@ -3,3 +3,4 @@ sqlalchemy
 pymysql
 boto3
 pandas
+pylint

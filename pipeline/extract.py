@@ -25,7 +25,7 @@ def initialise_argsparse() -> bool:
 def initialise_folders(all_files: bool, conn: pymysql.Connection):
     """Creates a data/ folder if it does not exist. Resets the database downloaded files."""
     if all_files:
-        
+
         if path.isdir('truck_data/data'):
             rmtree('truck_data/data')
         makedirs('truck_data/data')
@@ -68,8 +68,9 @@ def download_truck_data_files(s3_client, files: list, conn: pymysql.Connection) 
     """Downloads relevant files from S3 to a data/ folder."""
     try:
         for file in files:
-            s3_client.download_file(ENV["BUCKET"], file, f'truck_data/data/{file.replace("/", "_")}')
-        
+            s3_client.download_file(ENV["BUCKET"], file,
+                    f'truck_data/data/{file.replace("/", "_")}')
+
         cur = conn.cursor()
         cur.executemany("""
             INSERT INTO uploaded_files (filename)
@@ -110,6 +111,3 @@ if __name__ == "__main__":
     # Extract
     extract(download_all, connection)
     connection.close()
-
-    
-  

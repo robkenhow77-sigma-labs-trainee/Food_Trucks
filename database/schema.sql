@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS Payment_Method;
 DROP TABLE IF EXISTS Truck;
 DROP TABLE IF EXISTS uploaded_files;
 
+
 -- Create the tables
 CREATE TABLE Payment_Method (
     payment_method_id SMALLINT PRIMARY KEY,
@@ -17,7 +18,6 @@ CREATE TABLE Truck (
     has_card_reader BOOLEAN,
     fsa_rating SMALLINT
 );
-
 
 CREATE TABLE Transaction (
     transaction_id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
