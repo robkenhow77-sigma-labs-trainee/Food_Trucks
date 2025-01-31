@@ -1,0 +1,1 @@
+docker run -t -p 8501:80 --env-file .env dashboard

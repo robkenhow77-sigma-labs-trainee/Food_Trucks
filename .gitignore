@@ -7,4 +7,5 @@ terraform/*
 
 pipeline/__pycache__
 
-*sh
+pipeline/*.sh
+report/*.sh
